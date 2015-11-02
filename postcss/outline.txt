@@ -1,0 +1,87 @@
+1. What is a CSS preprocessor?
+  - Extendends the basic functionality of CSS, and compiles down to CSS the browser can use.
+    - Variables
+    - Nesting (visual hierarchy)
+    - Partials (modularity)
+    - Importing (no additional HTTP request)
+    - Mixins (grouped property declarations)
+    - Inheritance
+    - Mathematical operations
+  - All in all allows you to write more modular, functional, maintainable styles.
+  - Browser cannot understand this code natively (*), must be compiled into readable code.
+
+2. What is PostCSS and how is it different?
+  - PostCSS includes only the tools you need to have a CSS preprocessor, but none of the actual functionality.
+  - Completely driven by plugins. Works just like SASS or LESS, except the feature set is entirely driven by the plugins you add to your project.
+  - “PostCSS itself is very small. It includes only a CSS parser, a CSS node tree API, a source map generator, and a node tree stringifier.”
+  - PostCSS is written in JavaScript, resulting in it being 3x faster than libsass (C++). Better news, you can write your plugins in JavaScript.
+
+3. Comparison
+  - Both
+    - Integration with build tools (Gulp, Grunt)
+    - Allow usage of latest functional patterns to CSS
+    - Source map support
+  - SASS, LESS, SCSS
+    - Consistent feature set, predictable usage
+    - Maturity, adoption
+  - PostCSS
+    - More easily extensible, greater freedom
+    - Plugins written in JS instead of libsass (C++)
+    - Faster (negligible?)
+
+4. Integration / Build Process
+  - Integration with example Gulp workflow
+  - CSS in JS (React)
+  - As a Node package
+  - Via CLI
+
+5. Achieving SASS Feature Set
+  - Which PostCSS plugins are needed
+  - What's missing
+
+6. PostCSS Plugins
+  - What do you get that SASS won't provide
+  - postcss.parts
+  - CSS minification via cssnano
+  - IE compatibility via oldie
+  - CSS linting via stylelint
+  - Shorthand syntax via short
+  - Future CSS syntax via cssnext
+  - Fallback support for will-change, rgba, opacity, autoprefixer, rem
+  - Functional
+    - if, each, for
+    - functions
+  - Colors
+    - Simulate colorblindness
+    - Maintain consistent color palette via colorguard
+  - Images
+    - Add Instagram filters
+  - Reporting
+    - CSS statistics via cssstats
+    - Modernizr support matrix via css2modernizr
+    - Caniuse Browser support via doiuse
+
+7. CSSNext
+  - "cssnext is a CSS transpiler that allows you to use the latest CSS syntax today. It transforms new CSS specs into more compatible CSS so you don't need to wait for browser support."
+    - Write future-proof CSS... today
+  - Feature set
+  - Integration with PostCSS
+
+8. Fun PostCSS Plugins
+  - Australian CSS syntax
+  - Imperial length measurements
+
+9. Writing a PostCSS plugin
+  - Demonstration of plugin to make entire page grayscale
+
+Resources
+  - http://sass-lang.com/guide
+  - https://github.com/postcss/postcss
+  - https://github.com/postcss/benchmark
+  - https://github.com/postcss/postcss-js
+  - http://davidtheclark.com/excited-about-postcss/
+    - "But I can’t shake the concern that dropping a tool as proven and popular as Sass — one of the few frontend tools we can truly, indefinitely rely on — is like setting myself adrift, and maybe unnecessarily." ~ @davidtheclark
+  - http://benfrain.com/breaking-up-with-sass-postcss/
+  - http://postcss.parts/
+  - http://studiorgb.uk/from-sass-to-postcss/
+  - https://blog.codepen.io/2015/07/14/postcss-now-supported-on-codepen/
