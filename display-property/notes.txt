@@ -1,0 +1,105 @@
+0. Introduction
+	> Steve Blaurock, Front End Engineer @ Shutterstock
+
+1. Why do we use the display property?
+	> To show and hide elements on a page.
+	> To control the way elements interact with one another in a flow.
+		> We use containers to hold our page markup and create our template. Use 'display' property on containers to control flow of layout.
+
+2. Values of Interest
+	> CSS1 gives us the basics that will work in all browsers going back to IE4.
+	> CSS2.1 allows us to extend these basic ideas with 'inline-block' and also force elements to have table characteristics so desired.
+	> CSS3 attempts to address some of the pain points we experience with using the display property through Flexbox.
+	> The light purple values are valid, but we will not be taking an in depth look at them for reasons explained later.
+
+3. display: none
+	> Element and its children still exist within the DOM, but are removed visually.
+	> Cannot tab to element or its children, ignored by screen readers.
+	> Page rendered as if the element did not exist.
+	> Setting a different display value for a child element will NOT make it visible.
+	> Supported in all modern browsers and IE 4+.
+	> IE7 doesn't support 'inherit'.
+
+3a. visibility: hidden
+	> Element will be visually hidden.
+	> Still takes up space on the page, but is invisible. Basically, acts like turning opacity to 0.
+	> Will not trigger JavaScriptevents when hidden.
+	> If a child element should have its value set to 'visible', it will show up even though parent is 'hidden'.
+	> Supported in all modern browsers and IE 4+.
+	> IE7 doesn't support 'inherit'.
+
+4. display: inline
+	> Inline elements flow like text. Think of how you can wrap strings in '<b>' or '<span>' tags and have them display on the same line.
+	> Inline elements are rendered horizontally from left to right (unless otherwise specified by 'text-align').
+	> They will take up the minimal amount of horizontal space available.
+	> Inline elements are unaffected by specifiying a 'width' or 'height' value.
+	> Can accept margin and padding, though it will only create space to the left or right of the element. Cannot be used to create vertical space.
+	> Supported in all modern browsers and IE 4+.
+
+5. display: block
+	> A block element is displayed in its own row by default, creating a vertically stacking flow.
+	> Block elements will take up as much horizontal space as they can (100% of parent container) unless a width is specified.
+	> Block elements will honor a set height and width value, and they can have a margin or padding in all directions.
+	> Supported in all modern browsers and IE 4+.
+
+6. display: inline-block
+	> "The best of both worlds".
+	> Similar to inline in that elements will follow the natural horizontal flow of text.
+	> Has characteristics from block - setting a width and height, top and bottom margins and padding.
+	> Positioning based on how text is displayed - along a baseline.
+
+6a. inline-block vs. float
+	> You can achieve the same type of page structure that 'inline-block' offers by floating div's next to one another.
+	> The way 'inline-block' elements render resembles that of text nodes.
+	> If you look at my example of the upper and lower case "a", you'll see that they are vertically aligned along a baseline. 'inline-block' elements will do this by default as well (use 'vertical-align' property to modify).
+	> Using 'float' usually requires a "clearfix" hack, or the parent container will collapse on the smallest non-floated child element. This is not an issue when we use 'inline-block'.
+
+6b. Issues: Space in Markup
+	> Since we know that inline elements act like text, they receive the same spacing that words do.
+	> The size of this space is based on font size.
+	> Four solutions:
+		> Remove the spacing from the markup.
+			> Can be done with comments if desired.
+		> Remove the closing 'li' tags.
+		> Set the 'font-size' to 0, since a font of size 0 will not take up any space.
+			> Buggy in Android?
+		> Set a negative right margin equal to the size of a "space" character at the current font size.
+			> Creates coupling.
+
+6c. Issues: IE7
+	> IE7 will only cooperate with 'inline-block' on naturally inline elements like 'a', 'span', 'img'.
+	> This means the tags we'd probably be using in a situation where we need 'inline-block' like 'div', 'li', 'span' won't work in IE7.
+	> There is a "hack" for this, which triggers "hasLayout" and sets the 'display' property to 'inline' for IE7.
+
+7. display: table
+	> There are a lot of values related to the display property for creating layouts with table characteristics.
+	> You can do just about everything you can with actual table, tr and td tags.
+	> Using 'display: table' should result in more semantic markup, but in my opinion the drawbacks outweigh the benefits. Just use a table.
+	> Some potential use cases involve switching the display order of elements in a responsive design, and 'table-cell' offers vertical centering.
+	> Used in "clearfix hack" (http://nicolasgallagher.com/micro-clearfix-hack/).
+	> Does not work in IE7 (there's an ugly JavaScript polyfill, if you're into that sort of thing).
+
+8. Overview
+	> float
+		+ Full browser support.
+		- Parent container not aware of height of floated elements (requires "clearfix hack").
+	> inline-block
+		+ No collapsing of parent container.
+		+ Full browser support(ish).
+		- Requires "hack" for IE7.
+		- Issue with whitespace in markup.
+	> table
+		+ No collapsing of parent container.
+		+ Allows for vertical centering.
+		- Extra markup.
+		- No support for IE7.
+
+9. display: flex
+	> Flexbox seeks to provide all the functionality that we get from the various techniques demonstrated earlier, with additional features for ordering of elements, nesting and more.
+	> With Flexbox, you can declare a set number of nodes within a "box" and tell the browser which direction and what order they should be rendered in. You can also specify what should be done with any leftover white space.
+	> As it looks, extremely advanced layouts can be accomplished using Flexbox. Is it the best interface to solve our problem? Only the future will tell.
+
+10. Sources & Thanks
+	> twitter.com/sblaurock
+	> github.com/sblaurock
+	> linkedin.com/in/sblaurock

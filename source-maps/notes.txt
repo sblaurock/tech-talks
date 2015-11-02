@@ -1,0 +1,66 @@
+1. Pain Point Demonstration
+  - Minification provides a lot of value to the end user, we should all be doing it.
+  - Applications utilizing minification lead to debugging issues in production.
+  - Pretty Print in Chrome
+    - Doesn't solve all our problems.
+      - We lose separation of files.
+        - No tree structure.
+      - We lose all symbols in our code such as variable and function names.
+
+2. Introduction
+  - A source map provides a way of mapping code within a compressed file back to it’s original position in a source file.
+  - Allow us to optimize our production code how we want, but still provide an avenue back to original source.
+  - Source maps can be used with both JavaScript and CSS.
+    - CSS is still pretty easy to debug thanks to DevTools, though can come in handy when using SASS.
+  - Native support in both Chrome and Firefox.
+    - Will cover later in talk.
+  - Source maps are automatically generated, leading to very little maintenance after initial setup.
+    - Add to build process.
+
+3. Implementation
+  - Approach in two different ways.
+    - Special comment is added at bottom of minified file to indicate the location of the source map.
+      - Source map generator can do this for you.
+    - HTTP header
+
+4. Contents
+  - Will be generated automatically, but here's what's inside a source map file.
+  - 'mappings' contains the meat of the map and uses what's called Base64 VLQ to compress the mappings.
+    - Version 1 resulted in a source map about 10x the size of the generated code.
+      - Version 2 reduced this number by about 50%, as did version 3.
+
+5. Supporting Software & Tools
+  - There are more than listed here, but here are some examples of software that support source maps.
+  - We will focus on Uglify for our example.
+  - Source maps were added to the minified jQuery source in 1.9 to be quickly removed in 1.11.
+    - "One of the changes we’ve made in this beta is to remove the sourcemap comment. Sourcemaps have proven to be a very problematic and puzzling thing to developers, generating scores of confused questions on forums like StackOverflow and causing users to think jQuery itself was broken."
+    - They are still being generated, though the comment is not present by default.
+      - "We’ll still be generating and distributing sourcemaps, but you will need to add the appropriate sourcemap comment at the end of the minified file if the browser does not support manually associating map files (currently, none do). If you generate your own jQuery file using the custom build process, the sourcemap comment will be present in the minified file and the map is generated; you can either leave it in and use sourcemaps or edit it out and ignore the map file entirely."
+    - http://blog.jquery.com/2013/11/15/jquery-1-11-02-1-0-beta-2-released/
+  - grunt-contrib-cssmin can be used for compressing CSS.
+
+6. Enabling Source Maps in Browser
+  - .gif's!
+
+7. Notes and Pitfalls
+  - You cannot use source maps with minified inline JavaScript as there is no external file to refer to.
+  - Watch expressions (pointing out expressions in code to watch them change over time) aren't currently supported in source maps.
+  - Things that the generator should take care of for you
+    - Spec mentions that cross site scripting issues could arise as a result of using source maps, so it's recommended that maps are prepended with ')]}' to force a syntax error.
+    - The old syntax for including source maps (//@) has been deprecated as it conflicts with IE's "Conditional Compilation" (wat).
+    - Ensure your compiler does both of these things correctly.
+  - Original source files must be available on the network (locally or on Internet) in order for source mapping to work.
+  - You can serve source maps from any location (not just a relative path).
+
+8. Questions
+  - When are source maps loaded?
+    - Not until the debugger is active. Including a source map file will not have any effect on visitors. Opt-in for developers.
+    - The extra network overhead (requesting the map file & source files) only happens via the developer tools, so there’s no extra overhead on page load.
+  - Are source maps cacheable?
+    - I have reason to believe "yes" because of people complaining about out of date maps on Stack Overflow. Clearing browser cache should also clear source maps.
+  - Can they be served over HTTPS?
+    - Yup!
+  - Can we gzip compress them?
+    - Yup!
+
+Thanks! @sblaurock

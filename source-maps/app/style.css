@@ -1,0 +1,15 @@
+body {
+  -webkit-transition: background .15s ease-in-out;
+  transition: background .15s ease-in-out;
+}
+
+button {
+  margin: 10px;
+  padding: 10px;
+  font-size: 24px;
+  font-family: tahoma;
+  border: 2px solid #333;
+  background: #111;
+  border-radius: 10px;
+  color: #eee;
+}

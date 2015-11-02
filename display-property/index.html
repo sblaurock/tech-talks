@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>
+			CSS On Display
+		</title>
+		<meta name="description" content="On Display: A Practical Overview of the CSS Display Property">
+		<meta name="author" content="@sblaurock">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+		<style type="text/css">
+			pre code {
+				background: rgba(0,0,0,.8);
+			}
+			.controls div {
+				display: none;
+			}
+			.controls .navigate-up.enabled, .controls .navigate-down.enabled {
+				display: block;
+			}
+			.reveal .controls div.navigate-down, .reveal .controls div.navigate-down.enabled {
+				border-top-color: #fff;
+			}
+			.reveal .controls div.navigate-up, .reveal .controls div.navigate-up.enabled {
+				border-bottom-color: #fff;
+			}
+			.reveal .progress span {
+				background: #eee;
+			}
+			.reveal a:not(.image) {
+				color: #eee;
+			}
+			.reveal a:not(.image):hover, .reveal .dark a:not(.image):hover {
+				color: #333;
+			}
+			.reveal .dark a:not(.image) {
+				color: #777;
+			}
+			.reveal section img {
+				border: none;
+				background: none;
+				box-shadow: none;
+				margin: 15px 0 25px 0;
+			}
+			.reveal pre {
+				margin-top: 20px;
+				box-shadow: 0 0 6px rgba(0,0,0,.5);
+				width: 33%;
+			}
+			.plus, .minus {
+				margin: 0 0 0 10px !important;
+				width: 30px;
+				display: block;
+				float: left;
+				text-align: center;
+			}
+			.overview {
+				color: #ccc;
+				font-size: 30px !important;
+				margin: 0 0 25px 31% !important;
+				text-align: left;
+			}
+			.overview code {
+				color: #eee;
+				font-size: 30px;
+			}
+			.full, .plus {
+				color: #90CA77;
+			}
+			.partial {
+				color: #E48743;
+			}
+			.prefixed {
+				color: #E9B64D;
+			}
+			.minus {
+				color: #9E3B33;
+			}
+			.dark p {
+				color: #333;
+			}
+			.dark h2 {
+				color: #111;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-background="#015c65">
+					<h1>On Display:</h1>
+					<h3>A practical overview of the CSS display property</h3>
+					<p>
+						<small>A presentation by <a href="http://github.com/sblaurock">Steve Blaurock</a> / <a href="http://twitter.com/sblaurock">@sblaurock</a></small>
+					</p>
+				</section>
+				<section data-background="#b62e40">
+					<h2>Why do we use the <i>display</i>&nbsp;&nbsp;property?</h2>
+					<ol style="width: 50%">
+						<li style="margin-bottom: 15px">
+							<p>
+								To show and hide sets of elements.
+							</p>
+						</li>
+						<li>
+							<p>
+								To control the way elements "sit" in relation to one another.
+							</p>
+						</li>
+					</ol>
+				</section>
+				<section data-background="#443266">
+					<section>
+						<h2>Values of Interest</h2>
+						<ul>
+							<li>
+								CSS1
+								<code>
+									<ul>
+										<li>
+											none
+										</li>
+										<li>
+											inline
+										</li>
+										<li>
+											block
+										</li>
+										<li style="color: #c4a9f8">
+											list-item
+										</li>
+									</ul>
+								</code>
+							</li>
+						</ul>
+						<ul style="padding: 0 50px;">
+							<li>
+								CSS2.1
+								<code>
+									<ul>
+										<li>
+											inline-block
+										</li>
+										<li>
+											table
+										</li>
+										<li>
+											table-row
+										</li>
+										<li>
+											table-cell
+										</li>
+									</ul>
+								</code>
+							</li>
+						</ul>
+						<ul>
+							<li>
+								CSS3
+								<code>
+									<ul>
+										<li>
+											flex
+										</li>
+										<li style="color: #c4a9f8">
+											grid
+										</li>
+									</ul>
+								</code>
+							</li>
+							<li>
+								Experimental
+								<code>
+									<ul>
+										<li style="color: #c4a9f8">
+											run-in
+										</li>
+									</ul>
+								</code>
+							</li>
+						</ul>
+					</section>
+				</section>
+				<section data-background="#a64b00">
+					<section>
+						<h2>
+							display: none (CSS1)
+						</h2>
+						<p>
+							Visually remove an element (and its children) from the page.
+						</p>
+						<p>
+							<b>
+								Element will have no effect on page layout.
+							</b>
+						</p>
+						<br />
+						<p>
+							<b>jQuery:</b> <code>$('#elementId').hide();</code>
+						</p>
+					</section>
+					<section>
+						<h2>
+							visibility: hidden (CSS2.1)
+						</h2>
+						<p>
+							Render an element (and its children) as invisible.
+						</p>
+						<p>
+							<b>
+								Page layout will be effected by hidden element.
+							</b>
+						</p>
+						<br />
+						<a target="_blank" href="http://codepen.io/syndrone/full/fmayA">View Demonstration</a>
+					</section>
+				</section>
+				<section data-background="#354B5E">
+					<br />
+					<h2>
+						display: inline (CSS1)
+					</h2>
+					<p style="margin-bottom: 25px">
+						<code>&lt;span&gt;, &lt;a&gt;, &lt;b&gt;, &lt;img&gt; ...</code>
+					</p>
+					<img src="images/inline-flow.png" height="300" />
+					<p style="font-size: 100%">
+						Flow &harr;
+					</p>
+				</section>
+				<section data-background="#8D3A61">
+					<br />
+					<h2>
+						display: block (CSS1)
+					</h2>
+					<p style="margin-bottom: 25px">
+						<code>&lt;h1&gt;, &lt;p&gt;, &lt;div&gt; ...</code>
+					</p>
+					<img src="images/block-flow.png" height="300" />
+					<p style="font-size: 100%">
+						Flow &varr;
+					</p>
+				</section>
+				<section data-background="#70822E">
+					<section>
+						<br />
+						<h2>
+							display: inline-block (CSS2.1)
+						</h2>
+						<p>
+							Follows natural inline flow, but gives us characteristics of block elements.
+						</p>
+						<img src="images/inline-block-flow.png" />
+						<p style="font-size: 100%">
+							Flow &harr;
+						</p>
+					</section>
+					<section>
+						<h2>
+							Comparing With Float
+						</h2>
+						<p>
+							<code>inline-block</code> elements render the same way that text would.
+							<br />
+							Adjust alignment using <code>vertical-align</code> if needed.
+						</p>
+						<p style="font-size: 100px;">
+							<u style="background: rgba(255, 255, 255, .1); padding: 0 10px;">
+								Aa
+							</u>
+						</p>
+						<a target="_blank" href="http://codepen.io/syndrone/full/segvE">View Demonstration</a>
+					</section>
+					<section>
+						<h2>
+							Issues: Space in Markup
+						</h2>
+						<p>
+							Having spaces or newlines in your HTML markup will lead<br />to unwanted space between elements.
+						</p>
+						<pre><code data-trim>
+<ul class="inline-block">
+  <li>Item A</li>
+  <li>Item B</li>
+  ...
+</ul>
+						</code></pre>
+						<a target="_blank" href="http://codepen.io/syndrone/pen/HFncy">View Demonstration</a>
+					</section>
+					<section>
+						<h2>
+							Issues: IE7 Compatability
+						</h2>
+						<p>
+							IE7 only allows <code>inline-block</code> on naturally inline elements.
+						</p>
+						<pre><code data-trim>
+.inline-block {
+  ...
+  /* IE7 Fix */
+  zoom: 1;
+  *display: inline;
+}
+						</code></pre>
+					</section>
+				</section>
+				<section data-background="#9E3B33">
+					<h2>
+						display: table-* (CSS2.1)
+					</h2>
+					<p>
+						Allows for table characteristics to be applied through CSS.
+						<br />
+						Useful for vertical centering.
+						<pre><code data-trim>
+<div style="display: table;">
+  <div style="display: table-row;">
+    <div style="display: table-cell;">
+       YES, THIS IS CONTENT.
+    </div>
+  </div>
+</div>
+						</code></pre>
+					</p>
+				</section>
+				<section data-background="#272B2E">
+					<br />
+					<h2>
+						Overview
+					</h2>
+					<p class="overview">
+						<code>
+							float
+						</code>
+						<br />
+						<span class="plus">+</span> Full browser support.
+						<br />
+						<span class="minus">-</span> Parent container collapse (requires "clearfix hack").
+					</p>
+					<p class="overview">
+						<code>
+							inline-block
+						</code>
+						<br />
+						<span class="plus">+</span> No collapsing of parent container.
+						<br />
+						<span class="plus">+</span> Full browser support(ish).
+						<br />
+						<span class="minus">-</span> Requires "hack" for IE7 support.
+						<br />
+						<span class="minus">-</span> Issue with whitespace in markup.
+					</p>
+					<p class="overview">
+						<code>
+							table
+						</code>
+						<br />
+						<span class="plus">+</span> No collapsing of parent container.
+						<br />
+						<span class="plus">+</span> Allows for vertical centering.
+						<br />
+						<span class="minus">-</span> No support for IE7.
+						<br />
+						<span class="minus">-</span> Extra markup.
+					</p>
+				</section>
+				<section data-background="#4F474F">
+					<h2>
+						display: flex (CSS3)
+					</h2>
+					<p>
+						The children of a “box” can be ordered either vertically or horizontally within a parent.
+					</p>
+					<p>
+						Flexbox allows you to control what happens to any remaining space.
+					</p>
+					<p>
+						It is possible to nest these boxes, allowing for very complex layouts.
+					</p>
+					<br />
+					<p>
+						<b>Support:</b>
+						<br />
+						Chrome (<span class="full">Full</span>), Firefox (<span class="partial">Partial</span>), Safari (<span class="prefixed">Prefixed</span>),<br />
+						Opera (<span class="prefixed">Prefixed</span>), IE10 (<span class="partial">Partial</span>, <span class="prefixed">Prefixed</span>), IE11 (<span class="full">Full</span>)
+					</p>
+				</section>
+				<section data-background="#007046">
+					<h2>
+						Ignored Display Values
+					</h2>
+					<p>
+						<code>run-in</code> - Not supported in Firefox or IE7.
+					</p>
+					<p>
+						<code>grid</code> - Only supported in IE 10+ prefixed?
+					</p>
+					<p>
+						<code>list-item</code> - Just use real lists.
+					</p>
+				</section>
+				<section data-background="#fefefe" class="dark">
+					<section>
+						<br />
+						<h2>
+							Sources
+						</h2>
+						<p>
+							<a target="_blank" href="http://css-tricks.com/almanac/properties/d/display/"><b>CSS Tricks</b> - Display</a>
+						</p>
+						<p>
+							<a target="_blank" href="http://css-tricks.com/fighting-the-space-between-inline-block-elements/"><b>CSS Tricks</b> - Fighting the Space Between Inline Block Elements</a>
+						</p>
+						<p>
+							<a target="_blank" href="http://designshack.net/articles/css/whats-the-deal-with-display-inline-block/"><b>Design Shack</b> -What's the Deal With Display: Inline-Block</a>
+						</p>
+						<p>
+							<a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/display"><b>MDN</b> - Display</a>
+						</p>
+						<p>
+							<a target="_blank" href="https://blog.mozilla.org/webdev/2009/02/20/cross-browser-inline-block/"><b>Mozilla Web Development</b> - Cross Browser Inline-Block</a>
+						</p>
+						<p>
+							<a target="_blank" href="http://quirksmode.org/css/css2/display.html"><b>Quirksmode</b> - Display</a>
+						</p>
+						<br />
+						<h2>
+							Tools
+						</h2>
+						<p>
+							<a target="_blank" href="https://github.com/hakimel/reveal.js"><b>Hakim El Hattab</b> / reveal.js</a>
+						</p>
+					</section>
+					<section>
+						<h2>
+							Thank you!
+						</h2>
+						<p>
+							Twitter: <a target="_blank" href="http://twitter.com/sblaurock">@sblaurock</a> / Github: <a target="_blank" href="http://github.com/sblaurock">sblaurock</a>
+						</p>
+					</section>
+				</section>
+			</div>
+		</div>
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				touch: true,
+				width: 1920,
+				height: 1080,
+				margin: 0.1,
+				minScale: 1.3,
+				maxScale: 2.0,
+				transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
+				backgroundTransition: 'slide', // default/linear/none
+				theme: 'default', // default/beige/sky/night/serif/simple
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+		</script>
+	</body>
+</html>
