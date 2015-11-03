@@ -3,10 +3,11 @@
   - All in all allows you to write more modular, functional, maintainable styles
   - Browser cannot understand this code natively (*), must be compiled into readable code
   - CSS4 has variables natively, but none of the other things that make preprocessors popular
+  - We can do simple math via CSS calc function, but this doesn't quite compare to what we get with pre-processing
 
 2. What is PostCSS and how is it different?
   - PostCSS includes only the tools you need to have a CSS preprocessor, but none of the actual modifiers
-  - Completely driven by plugins. Works just like SASS or LESS, except the feature set is entirely driven by the plugins you add to your project
+  - Completely driven by plugins. Works just like Sass or Less, except the feature set is entirely driven by the plugins you add to your project
   - “PostCSS itself is very small. It includes only a CSS parser, a CSS node tree API, a source map generator, and a node tree stringifier.”
   - PostCSS is written in JavaScript, resulting in it being faster than libsass (C++). Better news, you can write your plugins in JavaScript
 
@@ -15,7 +16,7 @@
     - Integration with build tools (Gulp, Grunt)
     - Allow usage of latest functional patterns to CSS
     - Source map support
-  - SASS, LESS, SCSS
+  - Sass, Less, SCSS
     - Consistent feature set, predictable usage
     - Maturity, adoption
       - Developers have it in their toolbelt
@@ -29,21 +30,27 @@
 
 4. Integration / Build Process
   - PostCSS will integrate with essentially any modern build tool
-  - Integration with example Gulp workflow
-    - Node environment set up with NPM and Gulp declared as a dependency
+  - [DEMO] Integration with example Gulp workflow
+    - Node environment set up with NPM and Gulp
     - Bootstrap example page with two CSS files, one for the Bootstrap library and one for custom styles
-      - `npm install` to install Gulp
+      - `npm install gulp gulp-rename gulp-watch` to install Gulp and dependencies
       - `npm install gulp-postcss` to install PostCSS
-  - CSS in JS (React)
-  - As a Node package
-  - Via CLI
+      - `npm install postcss-simple-vars` to install our first plugin that allows us to use Sass-like variables
 
-5. Achieving SASS Feature Set
-  - Which PostCSS plugins are needed
-  - What's missing
+5. But what if...
+  - Using React? There's a plugin to evaluate CSS in JS
+  - You can apply PostCSS to inline and in-page style definitions
+  - Run PostCSS via the command line
+
+5. Achieving Sass Feature Set
+  - Yes, we can mostly achieve the full Sass featureset within PostCSS
+    - If we search for all the features Sass offers, there are PostCSS plugin solutions for each one that will get us close
+  - PreCSS is a bundle of plugins that does a much better job of providing all the same functionality that Sass offers
+  - [DEMO] Integration of PreCSS into Gulp workflow
+    - `npm install precss` to install PreCSS
 
 6. PostCSS Plugins
-  - What do you get that SASS won't provide
+  - What do you get that Sass won't provide
   - postcss.parts
   - CSS minification via cssnano
   - IE compatibility via oldie
@@ -87,4 +94,5 @@ Resources
   - http://benfrain.com/breaking-up-with-sass-postcss/
   - http://postcss.parts/
   - http://studiorgb.uk/from-sass-to-postcss/
+  - http://www.sitepoint.com/build-css-preprocessor-postcss/
   - https://blog.codepen.io/2015/07/14/postcss-now-supported-on-codepen/
