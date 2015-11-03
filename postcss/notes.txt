@@ -1,20 +1,14 @@
 1. What is a CSS preprocessor?
-  - Extendends the basic functionality of CSS, and compiles down to CSS the browser can use.
-    - Variables
-    - Nesting (visual hierarchy)
-    - Partials (modularity)
-    - Importing (no additional HTTP request)
-    - Mixins (grouped property declarations)
-    - Inheritance
-    - Mathematical operations
+  - Native CSS lacks functionality, so we aim to extend it.
   - All in all allows you to write more modular, functional, maintainable styles.
   - Browser cannot understand this code natively (*), must be compiled into readable code.
+  - CSS4 has variables natively, but none of the other things that make preprocessors popular.
 
 2. What is PostCSS and how is it different?
-  - PostCSS includes only the tools you need to have a CSS preprocessor, but none of the actual functionality.
+  - PostCSS includes only the tools you need to have a CSS preprocessor, but none of the actual modifiers.
   - Completely driven by plugins. Works just like SASS or LESS, except the feature set is entirely driven by the plugins you add to your project.
   - “PostCSS itself is very small. It includes only a CSS parser, a CSS node tree API, a source map generator, and a node tree stringifier.”
-  - PostCSS is written in JavaScript, resulting in it being 3x faster than libsass (C++). Better news, you can write your plugins in JavaScript.
+  - PostCSS is written in JavaScript, resulting in it being faster than libsass (C++). Better news, you can write your plugins in JavaScript.
 
 3. Comparison
   - Both
@@ -24,12 +18,16 @@
   - SASS, LESS, SCSS
     - Consistent feature set, predictable usage
     - Maturity, adoption
+      - Developers have it in their toolbelt
   - PostCSS
     - More easily extensible, greater freedom
+      - Could lead to difficulty debugging and maintaining since feature sets across stacks will differ
     - Plugins written in JS instead of libsass (C++)
+      - Easier to extend
     - Faster (negligible?)
 
 4. Integration / Build Process
+  - PostCSS will integrate with essentially any modern build tool.
   - Integration with example Gulp workflow
   - CSS in JS (React)
   - As a Node package

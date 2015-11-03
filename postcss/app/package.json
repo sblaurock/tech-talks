@@ -1,0 +1,26 @@
+{
+  "name": "talk-postcss",
+  "version": "0.1.0",
+  "description": "A talk about PostCSS originally delivered by Steve Blaurock at Shutterstock, Nov 4th 2015.",
+  "main": " ",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sblaurock/tech-talks.git"
+  },
+  "keywords": [
+    "presentation"
+  ],
+  "author": "Steve Blaurock",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sblaurock/tech-talks/issues"
+  },
+  "homepage": "https://github.com/sblaurock/tech-talks",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  }
+}
