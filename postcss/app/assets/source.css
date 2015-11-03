@@ -1,0 +1,7 @@
+$background-color: none;
+
+body {
+  padding-top: 70px;
+  padding-bottom: 30px;
+  background-color: $background-color;
+}

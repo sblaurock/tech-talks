@@ -1,14 +1,14 @@
 1. What is a CSS preprocessor?
-  - Native CSS lacks functionality, so we aim to extend it.
-  - All in all allows you to write more modular, functional, maintainable styles.
-  - Browser cannot understand this code natively (*), must be compiled into readable code.
-  - CSS4 has variables natively, but none of the other things that make preprocessors popular.
+  - Native CSS lacks functionality, so we aim to extend it
+  - All in all allows you to write more modular, functional, maintainable styles
+  - Browser cannot understand this code natively (*), must be compiled into readable code
+  - CSS4 has variables natively, but none of the other things that make preprocessors popular
 
 2. What is PostCSS and how is it different?
-  - PostCSS includes only the tools you need to have a CSS preprocessor, but none of the actual modifiers.
-  - Completely driven by plugins. Works just like SASS or LESS, except the feature set is entirely driven by the plugins you add to your project.
+  - PostCSS includes only the tools you need to have a CSS preprocessor, but none of the actual modifiers
+  - Completely driven by plugins. Works just like SASS or LESS, except the feature set is entirely driven by the plugins you add to your project
   - “PostCSS itself is very small. It includes only a CSS parser, a CSS node tree API, a source map generator, and a node tree stringifier.”
-  - PostCSS is written in JavaScript, resulting in it being faster than libsass (C++). Better news, you can write your plugins in JavaScript.
+  - PostCSS is written in JavaScript, resulting in it being faster than libsass (C++). Better news, you can write your plugins in JavaScript
 
 3. Comparison
   - Both
@@ -24,11 +24,16 @@
       - Could lead to difficulty debugging and maintaining since feature sets across stacks will differ
     - Plugins written in JS instead of libsass (C++)
       - Easier to extend
-    - Faster (negligible?)
+    - Faster
+      - Speed may not be a drastically important factor - most preprocessors are quite fast in most situations
 
 4. Integration / Build Process
-  - PostCSS will integrate with essentially any modern build tool.
+  - PostCSS will integrate with essentially any modern build tool
   - Integration with example Gulp workflow
+    - Node environment set up with NPM and Gulp declared as a dependency
+    - Bootstrap example page with two CSS files, one for the Bootstrap library and one for custom styles
+      - `npm install` to install Gulp
+      - `npm install gulp-postcss` to install PostCSS
   - CSS in JS (React)
   - As a Node package
   - Via CLI
