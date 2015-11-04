@@ -10,9 +10,9 @@ body {
 /* --- */
 
 
-@for $i from 1 to 3 {
-  .width-$i { width: $(i)px; }
-}
+/*@for $i from 1 to 3 {*/
+  /*.width-$i { width: $(i)px; }*/
+/*}*/
 
 
 /* --- */
