@@ -1,5 +1,10 @@
 # tech-talks
 
+### PostCSS
+_November 4th, 2015 @ Shutterstock_ - [Meetup](http://www.meetup.com/nyfrontendcoders/events/226235423/)
+
+PostCSS has become a popular topic in the front end community lately. What's so appealing about this new CSS preprocessor? Let's dive in to understand what PostCSS aims to accomplish, how it compares to other preprocessors and how to integrate it within a modern tech stack.
+
 ### Source Maps
 _October 22nd, 2014 @ Shutterstock_ - [Meetup](http://www.meetup.com/nyfrontendcoders/events/213338012/)
 
