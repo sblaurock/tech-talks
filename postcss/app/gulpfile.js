@@ -33,17 +33,32 @@ gulp.task('watch', function () {
     //.pipe(gulp.dest('assets'));
 //});
 
-// Process CSS - precss + degrading
+// Process CSS - precss + autoprefixer + oldie
 //gulp.task('css', function () {
   //var postcss = require('gulp-postcss');
 
   //return gulp.src('assets/source.css')
     //.pipe(postcss([
       //require('precss'),              // Sass-like functionality
-      //require('autoprefixer')({       // Vendor prefixes
+      //require('autoprefixer')({       // Vendor prefixes + fallbacks
         //browsers: ['IE 9', '> 1% in US']
       //}),
       //require('oldie'),                // IE fallbacks
+    //]))
+    //.pipe(rename('compiled.css'))
+    //.pipe(gulp.dest('assets'));
+//});
+
+// Process CSS - precss + cssnext + autoprefixer
+//gulp.task('css', function () {
+  //var postcss = require('gulp-postcss');
+
+  //return gulp.src('assets/source.css')
+    //.pipe(postcss([
+      //require('precss'),              // Sass-like functionality
+      //require('cssnext')({            // Future proof + fallbacks
+        //browsers: ['IE 9', '> 1% in US']
+      //})
     //]))
     //.pipe(rename('compiled.css'))
     //.pipe(gulp.dest('assets'));

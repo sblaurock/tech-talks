@@ -6,9 +6,17 @@ body {
   background-color: $background-color;
 }
 
+
+/* --- */
+
+
 @for $i from 1 to 3 {
   .width-$i { width: $(i)px; }
 }
+
+
+/* --- */
+
 
 a {
   display: flex;
@@ -19,4 +27,26 @@ a {
   opacity: .5;
   background-color: rgba(153, 221, 153, .8);
   margin-top: 2.5rem;
+}
+
+
+/* --- */
+
+
+:root {
+  --fontSize: 1rem;
+  --mainColor: hwb(190, 35%, 20%);
+}
+
+@custom-media --viewport-medium (width <= 1024px);
+
+.container {
+  line-height: calc(var(--fontSize) * 1.5);
+  color: color(var(--mainColor) blackness(+20%));
+}
+
+@media (--viewport-medium) {
+  .container {
+    filter: blur(4px);
+  }
 }

@@ -56,12 +56,15 @@
     - You can specify a list of browsers or selections (last 2 versions, > 5%)
   - oldie: IE fallbacks
     - `npm install oldie`
+  - [DEMO] Integration of tools into Gulp workflow
 
 6b. PostCSS Plugins (looking forward)
-  - "cssnext is a CSS transpiler that allows you to use the latest CSS syntax today. It transforms new CSS specs into more compatible CSS so you don't need to wait for browser support."
-    - Write future-proof CSS... today
+  - Transforms new CSS specs into more compatible CSS so you don't need to wait for browser support.
+  - Write future-proof CSS now
   - Feature set
-  - Integration with PostCSS
+  - Autoprefixer fallbacks
+  - [DEMO] Integration of cssnext into Gulp workflow
+    - `npm install cssnext`
 
 6c. PostCSS Plugins (tooling around)
   - CSS minification via cssnano
