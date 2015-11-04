@@ -64,5 +64,26 @@ gulp.task('watch', function () {
     //.pipe(gulp.dest('assets'));
 //});
 
+// Process CSS - precss + cssnext + autoprefixer + tooling
+//gulp.task('css', function () {
+  //var postcss = require('gulp-postcss');
+
+  //return gulp.src('assets/source.css')
+    //.pipe(postcss([
+      //require('precss'),              // Sass-like functionality
+      //require('cssnext')({            // Future proof + fallbacks
+        //browsers: ['IE 9', '> 1% in US']
+      //}),
+      //require('stylelint')({          // Linting
+        //"rules": {
+          //"declaration-colon-space-after": [1, "always"],
+        //}
+      //}),
+      //require('cssnano')              // Minification
+    //]))
+    //.pipe(rename('compiled.css'))
+    //.pipe(gulp.dest('assets'));
+//});
+
 // Default
 gulp.task('default', ['css', 'watch']);

@@ -67,12 +67,12 @@
     - `npm install cssnext`
 
 6c. PostCSS Plugins (tooling around)
-  - CSS minification via cssnano
-  - CSS linting via stylelint
-  - Reporting
-    - CSS statistics via cssstats
-    - Modernizr support matrix via css2modernizr
-    - Caniuse Browser support via doiuse
+  - cssnano: Minify CSS
+    - `npm install cssnano`
+  - stylelint: Modern CSS linting
+    - `npm install stylelint`
+  - list-selectors: Returns a list of used selectors for analysis
+  - [DEMO] Integration of cssnano and stylelint into Gulp workflow
 
 6d. PostCSS Plugins (simply awesome)
   - Colors
