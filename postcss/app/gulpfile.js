@@ -15,7 +15,7 @@ gulp.task('watch', function () {
 
   //return gulp.src('assets/source.css')
     //.pipe(postcss([
-      //require('postcss-simple-vars')
+      //require('postcss-simple-vars')  // Sass-like variables
     //]))
     //.pipe(rename('compiled.css'))
     //.pipe(gulp.dest('assets'));
@@ -27,7 +27,23 @@ gulp.task('watch', function () {
 
   //return gulp.src('assets/source.css')
     //.pipe(postcss([
-      //require('precss')
+      //require('precss')               // Sass-like functionality
+    //]))
+    //.pipe(rename('compiled.css'))
+    //.pipe(gulp.dest('assets'));
+//});
+
+// Process CSS - precss + degrading
+//gulp.task('css', function () {
+  //var postcss = require('gulp-postcss');
+
+  //return gulp.src('assets/source.css')
+    //.pipe(postcss([
+      //require('precss'),              // Sass-like functionality
+      //require('autoprefixer')({       // Vendor prefixes
+        //browsers: ['IE 9', '> 1% in US']
+      //}),
+      //require('oldie'),                // IE fallbacks
     //]))
     //.pipe(rename('compiled.css'))
     //.pipe(gulp.dest('assets'));

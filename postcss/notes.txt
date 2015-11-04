@@ -49,40 +49,39 @@
   - [DEMO] Integration of PreCSS into Gulp workflow
     - `npm install precss` to install PreCSS
 
-6. PostCSS Plugins
+6a. PostCSS Plugins (gracefully degrading)
   - What do you get that Sass won't provide
-  - postcss.parts
-  - CSS minification via cssnano
-  - IE compatibility via oldie
-  - CSS linting via stylelint
-  - Shorthand syntax via short
-  - Future CSS syntax via cssnext
-  - Fallback support for will-change, rgba, opacity, autoprefixer, rem
-  - Functional
-    - if, each, for
-    - functions
-  - Colors
-    - Simulate colorblindness
-    - Maintain consistent color palette via colorguard
-  - Images
-    - Add Instagram filters
-  - Reporting
-    - CSS statistics via cssstats
-    - Modernizr support matrix via css2modernizr
-    - Caniuse Browser support via doiuse
+  - autoprefixer: Automatically add vendor prefixes from Can I Use
+    - `npm install autoprefixer`
+    - You can specify a list of browsers or selections (last 2 versions, > 5%)
+  - oldie: IE fallbacks
+    - `npm install oldie`
 
-7. CSSNext
+6b. PostCSS Plugins (looking forward)
   - "cssnext is a CSS transpiler that allows you to use the latest CSS syntax today. It transforms new CSS specs into more compatible CSS so you don't need to wait for browser support."
     - Write future-proof CSS... today
   - Feature set
   - Integration with PostCSS
 
-8. Fun PostCSS Plugins
+6c. PostCSS Plugins (tooling around)
+  - CSS minification via cssnano
+  - CSS linting via stylelint
+  - Reporting
+    - CSS statistics via cssstats
+    - Modernizr support matrix via css2modernizr
+    - Caniuse Browser support via doiuse
+
+6d. PostCSS Plugins (simply awesome)
+  - Colors
+    - Simulate colorblindness
+    - Maintain consistent color palette via colorguard
+  - Images
+    - Add Instagram filters
+
+6e. PostCSS Plugins (fun)
   - Australian CSS syntax
   - Imperial length measurements
-
-9. Writing a PostCSS plugin
-  - Demonstration of plugin to make entire page grayscale
+  - postcss.parts
 
 Resources
   - http://sass-lang.com/guide

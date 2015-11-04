@@ -5,3 +5,18 @@ body {
   padding-bottom: 30px;
   background-color: $background-color;
 }
+
+@for $i from 1 to 3 {
+  .width-$i { width: $(i)px; }
+}
+
+a {
+  display: flex;
+}
+
+.banner > p:nth-child(4) {
+  font-size: calc(16px * 3);
+  opacity: .5;
+  background-color: rgba(153, 221, 153, .8);
+  margin-top: 2.5rem;
+}
