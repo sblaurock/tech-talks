@@ -66,26 +66,37 @@
   - [DEMO] Integration of cssnext into Gulp workflow
     - `npm install cssnext`
 
-6c. PostCSS Plugins (tooling around)
+6c. PostCSS Plugins (tooling)
   - cssnano: Minify CSS
     - `npm install cssnano`
   - stylelint: Modern CSS linting
     - `npm install stylelint`
-  - list-selectors: Returns a list of used selectors for analysis
-  - [DEMO] Integration of cssnano and stylelint into Gulp workflow
-
-6d. PostCSS Plugins (extending features)
-  - postcss-instagram: Instagram filters
-    - Could be hard coded in CSS
-    - Interesting to consider the idea of having plug and play features maintained by others
-    - `npm install postcss-instagram`
-  - postcss-colorblind: Simulate colorblindness
+  - [DEMO] postcss-colorblind: Simulate colorblindness
     - Help understand accessibility issues on sites
+    - `npm install postcss-colorblind`
+  - There are amazing tools to help you analyze and generate reports
+  - Fun plugins
+    - Australian CSS syntax
+    - Imperial length measurements
 
-6e. PostCSS Plugins (fun)
-  - Australian CSS syntax
-  - Imperial length measurements
-  - postcss.parts
+7. Writing a Plugin
+  - PostCSS plugins are written in JavaScript
+  - PostCSS's one job is to parse styles and return them to you in an organized format
+  - Provides an API to query styles, allowing you to take action on them
+    - Create a declaration, modify rule within declaration, delete all rules etc.
+  - Guidelines
+    - Plugins purpose should be clear from its name
+    - Do one thing, and do it well. Plugins like cssnext and precss are actually built of smaller plugins
+    - Write documentation and test
+
+8. So... should I use it?
+  - Kitchen sink. Talked about how extensible PostCSS is and how much can be added in, but it is a two way street.
+  - Maybe you just need a CSS shim for conical gradients in your project and nothing more.
+  - DavidTheClark quote
+    - He has authored PostCSS plugins
+  - Far and wide the most customizable and open solution
+  - CodePen announced support
+    - http://puu.sh/l9204/f3ec58fb94.png
 
 Resources
   - http://sass-lang.com/guide
@@ -93,7 +104,6 @@ Resources
   - https://github.com/postcss/benchmark
   - https://github.com/postcss/postcss-js
   - http://davidtheclark.com/excited-about-postcss/
-    - "But I can’t shake the concern that dropping a tool as proven and popular as Sass — one of the few frontend tools we can truly, indefinitely rely on — is like setting myself adrift, and maybe unnecessarily." ~ @davidtheclark
   - http://benfrain.com/breaking-up-with-sass-postcss/
   - http://postcss.parts/
   - http://studiorgb.uk/from-sass-to-postcss/
