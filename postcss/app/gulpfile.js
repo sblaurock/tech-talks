@@ -85,5 +85,23 @@ gulp.task('watch', function () {
     //.pipe(gulp.dest('assets'));
 //});
 
+// Process CSS - colorblind
+//gulp.task('css', function () {
+  //var postcss = require('gulp-postcss');
+
+  //return gulp.src([
+      //'assets/source.css'
+    //])
+    //.pipe(postcss([
+      //require('postcss-colorblind')({      // Color bindness
+        //method: 'deuteranopia',
+        ////method: 'tritanopia',
+        ////method: 'protanopia'
+      //}),
+    //]))
+    //.pipe(rename('compiled.css'))
+    //.pipe(gulp.dest('assets'));
+//});
+
 // Default
 gulp.task('default', ['css', 'watch']);

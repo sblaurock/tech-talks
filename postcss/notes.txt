@@ -74,12 +74,13 @@
   - list-selectors: Returns a list of used selectors for analysis
   - [DEMO] Integration of cssnano and stylelint into Gulp workflow
 
-6d. PostCSS Plugins (simply awesome)
-  - Colors
-    - Simulate colorblindness
-    - Maintain consistent color palette via colorguard
-  - Images
-    - Add Instagram filters
+6d. PostCSS Plugins (extending features)
+  - postcss-instagram: Instagram filters
+    - Could be hard coded in CSS
+    - Interesting to consider the idea of having plug and play features maintained by others
+    - `npm install postcss-instagram`
+  - postcss-colorblind: Simulate colorblindness
+    - Help understand accessibility issues on sites
 
 6e. PostCSS Plugins (fun)
   - Australian CSS syntax
